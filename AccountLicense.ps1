@@ -28,7 +28,7 @@ $topList.items | ForEach-Object {
     $difDay = ($today - $fixLastAccess).Days
     #foreach onde analisa os usuários com 45 dias sem acesso que não são stakeholders - considera todo o resto
     foreach ($diferent in $difDay) {
-        if ($diferent -gt 60 -and $sku -ne 'stakeholder') {
+        if ($diferent -gt 45 -and $sku -ne 'stakeholder') {
             $usu45Dias += $user
             $anyuser = $false
             az devops user update --user $user --license-type 'stakeholder'
